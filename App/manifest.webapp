@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "name": "Cookie Clicker",
+  "description": "A Simple Cookie Clicker Clone for KaiOS",
+  "short_name": "CC",
+  "type": "web",
+  "launch_path": "/index.html",
+  "icons": {
+    "56": "/assets/ic_cc_56.png",
+    "112": "/assets/ic_cc_112.png"
+  },
+  "developer": {
+    "name": "Bubbleeey",
+    "url": "https://github.com/Bubbleeey"
+  },
+  "locales": {
+    "en-US": {
+      "name": "Cookie Clicker",
+      "subtitle": "Cookie Clicker for KaiOS",
+      "description": "A Simple Cookie Clicker Clone for KaiOS"
+    }
+  },
+  "default_locale": "en-US",
+  "categories": [
+    "games",
+    "entertainment"
+    ]
+}
