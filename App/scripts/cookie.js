@@ -2,6 +2,8 @@
 let cookie = 0;
 let multiplier = 1;
 let autoclick = 0;
+let multipliercost = 100;
+let autoclickcost = 10;
 
 //data persistence (add to external js later)
 function save()
@@ -9,6 +11,8 @@ function save()
     localStorage.setItem("cookie", cookie);
     localStorage.setItem("multiplier", multiplier);
     localStorage.setItem("autoclick", autoclick);
+    localStorage.setItem("multipliercost", multipliercost);
+    localStorage.setItem("autoclickcost", autoclickcost);
 }
 
 function load()
@@ -19,6 +23,10 @@ function load()
     multiplier = parseInt(multiplier);
     autoclick = localStorage.getItem("autoclick");
     autoclick = parseInt(autoclick);
+    multipliercost = localStorage.getItem("multipliercost");
+    multipliercost = parseInt(multipliercost);
+    autoclickcost = localStorage.getItem("autoclickcost");
+    autoclickcost = parseInt(autoclickcost);
     update();
 }
 
@@ -27,8 +35,14 @@ function update()
 {
     document.getElementById("counter").innerHTML = cookie + " Cookies!";
     document.getElementById("cps").innerHTML = (autoclick*multiplier) + " CPS!";
-    document.getElementById("autoclickers").innerHTML = autoclick + " Autoclickers | +1 Cost " + ((autoclick+1)*12);
-    document.getElementById("multiplers").innerHTML = multiplier + " Multiplers | +1 Cost " + ((multiplier+1)*100);
+    document.getElementById("autoclickers").innerHTML = autoclick + " Autoclickers | +1 Cost " + autoclickcost;
+    document.getElementById("multiplers").innerHTML = multiplier + " Multiplers | +1 Cost " + multipliercost;
+}
+
+//notification handler
+//add next https://apvarun.github.io/toastify-js/#
+function notification(message)
+{
 }
 
 //global timer
@@ -41,20 +55,24 @@ function timer()
 //Buying Functions
 function buyautoclick()
 {
-    if (cookie >= ((autoclick+1)*12))
+    if (cookie >= (autoclickcost+1))
     {
-        cookie = cookie - ((autoclick+1)*12);
+        cookie = cookie - (autoclickcost+1);
         autoclick +=1;
+        autoclickcost = ((autoclickcost+1)*2)
+        save();
         update();
     }
 }
 
 function buymultiplier()
 {
-    if (cookie >= ((multiplier+1)*100))
+    if (cookie >= (multipliercost+1))
     {
-        cookie = cookie - ((multiplier+1)*100);
+        cookie = cookie - (multipliercost+1);
         multiplier +=1;
+        multipliercost = ((multipliercost+1)*10);
+        save();
         update();
     }
 }
