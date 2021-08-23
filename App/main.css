@@ -1,4 +1,21 @@
+@font-face {
+    font-family: Pixel;
+    src: url("./assets/Minecraft.ttf");
+}
+
+body
+{
+    background-image: url("./assets/background.png");
+    color: white;
+}
+
 h3
 {
+    font-family: Pixel;
+    margin: 0em;
+}
+p
+{
+    font-family: Pixel;
     margin: 0em;
 }
