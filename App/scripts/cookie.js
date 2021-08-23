@@ -5,6 +5,11 @@ let autoclick = 0;
 let multipliercost = 100;
 let autoclickcost = 10;
 
+//auto load
+window.addEventListener("load", function(){
+    load();
+});
+
 //data persistence (add to external js later)
 function save()
 {
@@ -28,6 +33,7 @@ function load()
     autoclickcost = localStorage.getItem("autoclickcost");
     autoclickcost = parseInt(autoclickcost);
     update();
+    notification("Save Loaded", false);
 }
 
 //Display Updater
@@ -41,8 +47,32 @@ function update()
 
 //notification handler
 //add next https://apvarun.github.io/toastify-js/#
-function notification(message)
+function notification(message, error)
 {
+    if(error == true)
+    {
+        Toastify
+        (
+            {
+              text: message.toString(),
+              duration: 3000,
+              gravity: "bottom",
+              backgroundColor: "rgba(255,0,0,0.7)"
+            }
+        ).showToast();
+    }
+    else
+    {
+        Toastify
+        (
+            {
+                text: message.toString(),
+                duration: 3000,
+                gravity: "bottom",
+                backgroundColor: "rgba(0,0,0,0.7)"
+            }
+        ).showToast();
+    }
 }
 
 //global timer
@@ -63,6 +93,7 @@ function buyautoclick()
         save();
         update();
     }
+    else {notification("Insufficient Cookies", true)}
 }
 
 function buymultiplier()
@@ -75,6 +106,7 @@ function buymultiplier()
         save();
         update();
     }
+    else {notification("Insufficient Cookies", true)}
 }
 
 //input handler
@@ -85,6 +117,7 @@ function handleKeyDown(evt) {
             break;
         case 'SoftRight':
             save();
+            notification("Game Saved", false);
             break;
         case 'Enter':
             cookie += 1;
