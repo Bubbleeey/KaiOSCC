@@ -170,6 +170,17 @@ function timer()
 //Buying Functions
 function buyautoclick()
 {
+    if (autoclick % 5 === 0 && cookie >= (autoclickcost+1))
+    {
+        notification("Upgrade Bonus: +5 CPC", false);
+        upgradecpc(5);
+    } else {}
+    if(autoclick % 25 === 0 && cookie >= (autoclickcost+1) )
+    {
+        autoclickpower = (autoclickpower * 100);
+        cps += (autoclickpower * autoclick);
+        notification("Upgrade Bonus: 100x AutoClick Power", false);
+    } else {}
     if (cookie >= (autoclickcost+1))
     {
         cookie = cookie - (autoclickcost+1);
@@ -180,21 +191,21 @@ function buyautoclick()
         update();
     }
     else {notification("Insufficient Cookies", true);}
-    if (autoclick % 5 === 0)
-    {
-        notification("Upgrade Bonus: +5 CPC", false);
-        upgradecpc(5);
-    } else {}
-    if(autoclick % 25 === 0)
-    {
-        autoclickpower = (autoclickpower * 100);
-        cps += (autoclickpower * autoclick);
-        notification("Upgrade Bonus: 100x AutoClick Power", false);
-    } else {}
 }
 
 function buyfarm()
 {
+    if (farm % 5 === 0 && cookie >= (farmcost+1))
+    {
+        notification("Upgrade Bonus: +25 CPC", false);
+        upgradecpc(25);
+    }
+    if(farm % 25 === 0 && cookie >= (farmcost+1))
+    {
+        farmpower = (farmpower * 100);
+        cps += (farmpower * farm);
+        notification("Upgrade Bonus: 100x Farm Power", false);
+    }
     if (cookie >= (farmcost+1))
     {
         cookie = cookie - (farmcost+1);
@@ -205,22 +216,21 @@ function buyfarm()
         update();
     }
     else {notification("Insufficient Cookies", true);}
-
-    if (farm % 5 === 0)
-    {
-        notification("Upgrade Bonus: +25 CPC", false);
-        upgradecpc(25);
-    }
-    if(farm % 25 === 0)
-    {
-        farmpower = (farmpower * 100);
-        cps += (farmpower * farm);
-        notification("Upgrade Bonus: 100x Farm Power", false);
-    }
 }
 
 function buymine()
 {
+    if (mine % 5 === 0 && cookie >= (minecost+1))
+    {
+        notification("Upgrade Bonus: +125 CPC", false);
+        upgradecpc(125);
+    }
+    if(mine % 25 === 0 && cookie >= (minecost+1))
+    {
+        minepower = (minepower * 100);
+        cps += (minepower * mine);
+        notification("Upgrade Bonus: 100x Mine Power", false);
+    }
     if (cookie >= (minecost+1))
     {
         cookie = cookie - (minecost+1);
@@ -231,22 +241,21 @@ function buymine()
         update();
     }
     else {notification("Insufficient Cookies", true);}
-
-    if (mine % 5 === 0)
-    {
-        notification("Upgrade Bonus: +125 CPC", false);
-        upgradecpc(125);
-    }
-    if(mine % 25 === 0)
-    {
-        minepower = (minepower * 100);
-        cps += (minepower * mine);
-        notification("Upgrade Bonus: 100x Mine Power", false);
-    }
 }
 
 function buyfactory()
 {
+    if (factory % 5 === 0 && cookie >= (factorycost+1))
+    {
+        notification("Upgrade Bonus: +625 CPC", false);
+        upgradecpc(625);
+    }
+    if(factory % 25 === 0 && cookie >= (factorycost+1))
+    {
+        factorypower = (factorypower * 100);
+        cps += (factorypower * factory);
+        notification("Upgrade Bonus: 100x Factory Power", false);
+    }
     if (cookie >= (factorycost+1))
     {
         cookie = cookie - (factorycost+1);
@@ -257,22 +266,21 @@ function buyfactory()
         update();
     }
     else {notification("Insufficient Cookies", true);}
-
-    if (factory % 5 === 0)
-    {
-        notification("Upgrade Bonus: +625 CPC", false);
-        upgradecpc(625);
-    }
-    if(factory % 25 === 0)
-    {
-        factorypower = (factorypower * 100);
-        cps += (factorypower * factory);
-        notification("Upgrade Bonus: 100x Factory Power", false);
-    }
 }
 
 function buybank()
 {
+    if (bank % 5 === 0 && cookie >= (bankcost+1))
+    {
+        notification("Upgrade Bonus: +3125 CPC", false);
+        upgradecpc(3125);
+    }
+    if(bank % 25 === 0 && cookie >= (bankcost+1))
+    {
+        bankpower = (bankpower * 100);
+        cps += (bankpower * bank);
+        notification("Upgrade Bonus: 100x Bank Power", false);
+    }
     if (cookie >= (bankcost+1))
     {
         cookie = cookie - (bankcost+1);
@@ -283,18 +291,6 @@ function buybank()
         update();
     }
     else {notification("Insufficient Cookies", true);}
-
-    if (bank % 5 === 0)
-    {
-        notification("Upgrade Bonus: +3125 CPC", false);
-        upgradecpc(3125);
-    }
-    if(bank % 25 === 0)
-    {
-        bankpower = (bankpower * 100);
-        cps += (bankpower * bank);
-        notification("Upgrade Bonus: 100x Bank Power", false);
-    }
 }
 
 function upgradecpc(amount)
