@@ -18,6 +18,8 @@ let bank = 1;
 let bankcost = 1000000;
 let bankpower = 17500;
 
+click1 = new Audio("assets/click-01.wav")
+
 //auto load
 window.addEventListener("load", function(){
     load();
@@ -137,6 +139,25 @@ function notification(message, error)
             }
         ).showToast();
     }
+}
+//maybe add animation css toggle later + fix audio issues on fast consecutive calls
+function click()
+{
+    click1.play();
+    cookie += cpc;
+    document.getElementById('cookie').style.height = '100px';
+    document.getElementById('cookie').style.width = '100px';
+    document.getElementById('cookie').style.marginLeft = '1.5rem';
+    document.getElementById('cookie').style.marginTop = '1.65rem';
+    document.getElementById('cookie').style.marginBottom = '1.5rem';
+    setTimeout(function ()
+    {
+        document.getElementById('cookie').style.height = null;
+        document.getElementById('cookie').style.width = null;
+        document.getElementById('cookie').style.marginLeft = null;
+        document.getElementById('cookie').style.marginTop = null;
+        document.getElementById('cookie').style.marginBottom = null ;
+    }, 50);
 }
 
 //global timer
@@ -293,7 +314,7 @@ function handleKeyDown(evt) {
             notification("Game Saved", false);
             break;
         case 'Enter':
-            cookie += cpc;
+            click();
             update();
             break;
         case '1':

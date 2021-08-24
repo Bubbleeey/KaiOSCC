@@ -12,10 +12,43 @@ body
 h3
 {
     font-family: Pixel;
-    margin: 0em;
+    margin: 0;
 }
 p
 {
     font-family: Pixel;
-    margin: 0em;
+    margin: 0;
 }
+
+#cookie
+{
+    width: 150px;
+    height: 150px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+
+#info
+{
+    text-align: center;
+    text-shadow: 2px 2px black;
+}
+
+.icon
+{
+    width: 40px;
+    height: 40px;
+}
+
+.save
+{
+    padding-left: 8rem;
+}
+#jar
+{
+    margin: 1rem 2rem 0.8rem;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
